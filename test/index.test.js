@@ -5,7 +5,7 @@ const { expect } = require('chai')
 const corsHeaders = require('../index')
 
 describe('hapi-cors-headers tests', () => {
-  it('request.headers.origin is undefined', (done) => {
+  it('request.headers.origin is undefined', done => {
     const request = { headers: {} }
     const h = { continue: true }
     corsHeaders(request, h)
@@ -13,7 +13,7 @@ describe('hapi-cors-headers tests', () => {
     done()
   })
 
-  it('request is boom error', (done) => {
+  it('request is boom error', done => {
     const request = {
       headers: {
         origin: 'example.com'
@@ -34,7 +34,7 @@ describe('hapi-cors-headers tests', () => {
     done()
   })
 
-  it('options request without acces-control-request headers', (done) => {
+  it('options request without acces-control-request headers', done => {
     const request = {
       method: 'options',
       headers: {
@@ -55,7 +55,7 @@ describe('hapi-cors-headers tests', () => {
     done()
   })
 
-  it('options request', (done) => {
+  it('options request', done => {
     const request = {
       method: 'options',
       headers: {

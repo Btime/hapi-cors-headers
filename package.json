@@ -1,10 +1,30 @@
 {
   "name": "hapi-cors-headers",
+  "version": "1.0.0",
   "description": "hapi extension to enable CORS",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "nyc --check-coverage --lines 75 --functions 75 --reporter=html --reporter=text mocha test/*.test.js --exit --timeout 555555",
     "fixStyle": "./node_modules/eslint/bin/eslint.js ./ --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./node_modules/eslint/bin/eslint.js ./",
+      "pre-push": "npm test"
+    }
+  },
+  "nyc": {
+    "exclude": [
+      "coverage",
+      "test",
+      "srv"
+    ]
   },
   "repository": {
     "type": "git",
@@ -16,11 +36,11 @@
     "extension"
   ],
   "author": "Btime <team@btime.io>",
-  "license": "MIT",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/Btime/hapi-cors-headers#readme",
   "bugs": {
     "url": "https://github.com/Btime/hapi-cors-headers/issues"
   },
-  "homepage": "https://github.com/Btime/hapi-cors-headers#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
