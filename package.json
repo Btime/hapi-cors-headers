@@ -3,31 +3,35 @@
   "description": "hapi extension to enable CORS",
   "main": "index.js",
   "scripts": {
-    "pretest": "standard",
-    "coverage": "tap --coverage-report=html",
-    "coverage:upload": "tap --coverage-report=text-lcov | coveralls",
-    "semantic-release": "semantic-release",
-    "test": "tap --100 --coverage tests"
+    "test": "nyc --check-coverage --lines 75 --functions 75 --reporter=html --reporter=text mocha test/*.test.js --exit --timeout 555555",
+    "fixStyle": "./node_modules/eslint/bin/eslint.js ./ --fix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gr2m/hapi-cors-headers.git"
+    "url": "https://github.com/Btime/hapi-cors-headers.git"
   },
   "keywords": [
     "hapi",
     "cors",
     "extension"
   ],
-  "author": "Gregor Martynus <gregor@martynus.net>",
+  "author": "Btime <team@btime.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gr2m/hapi-cors-headers/issues"
+    "url": "https://github.com/Btime/hapi-cors-headers/issues"
   },
-  "homepage": "https://github.com/gr2m/hapi-cors-headers#readme",
+  "homepage": "https://github.com/Btime/hapi-cors-headers#readme",
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "semantic-release": "^15.0.0",
-    "standard": "^11.0.0",
-    "tap": "^13.0.1"
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-mocha": "^5.3.0",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^2.3.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
   }
 }
